@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WpfApp1.Models;
+using WpfApp1.Services;
 
 namespace WpfApp1.ViewModels
 {
@@ -14,12 +15,11 @@ namespace WpfApp1.ViewModels
 	{
 		private readonly IServiceProvider _serviceProvider;
 
-		public SelectActivityViewModel(IServiceProvider serviceProvider)
+		public SelectActivityViewModel(IServiceProvider serviceProvider,IUserService userService)
 		{
 			_serviceProvider = serviceProvider;
 
-			var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
-			//mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<AddActivityViewModel>();
+			SelectedPerson = userService.GetPerson();
 		}
 
 		[ObservableProperty]

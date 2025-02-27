@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Hosting;
 using System.Windows;
 using WpfApp1.Controls;
+using WpfApp1.Services;
 using WpfApp1.ViewModels;
 using WpfApp1.Views;
 
@@ -23,6 +24,9 @@ namespace WpfApp1
                     //service registration...resolve GetRequireService()
 
                     //global
+                    services.AddSingleton<IUserService,UserService>(); 
+                    services.AddSingleton<ITestService,UsersService>(); 
+
                     services.AddSingleton<MainViewModel>(); 
                     services.AddSingleton<Views.MainWindow>(); 
 

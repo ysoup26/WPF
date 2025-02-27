@@ -10,6 +10,10 @@
 			 xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
 			 d:DataContext="{d:DesignInstance Type=VM:ActivitiesViewModel}">
     <Grid>
-            
-    </Grid>
+		<StackPanel Orientation="Vertical">
+			<TextBlock Text="Delete"/>
+			<Button Content="Go Back" Command="{Binding GoToActivitiesCommand}" Visibility="Visible"/>
+		</StackPanel>
+		
+	</Grid>
 </UserControl>
