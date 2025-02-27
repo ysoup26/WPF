@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+      *********    이 파일을 수정하지 마십시오.     *********
+      이 파일은 디자인 도구에서 다시 생성했습니다. 이 파일을
+      변경하면 오류가 발생할 수 있습니다.
+-->
+<xs:schema xmlns:blend="http://schemas.microsoft.com/expression/blend/2008" xmlns:tns="Expression.Blend.SampleData.SampleDataSource" targetNamespace="Expression.Blend.SampleData.SampleDataSource" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SampleDataSource" type="tns:SampleDataSource" />
+  <xs:complexType name="SampleDataSource">
+    <xs:sequence>
+      <xs:element name="People" type="tns:People" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="People">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="PeopleItem" type="tns:PeopleItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PeopleItem">
+    <xs:attribute blend:FormatParameters="2" name="Id" type="xs:double" />
+    <xs:attribute blend:FormatParameters="2" name="Age" type="xs:double" />
+    <xs:attribute blend:Format="이름" name="Irum" type="xs:string" />
+    <xs:attribute blend:Format="전화 번호" name="Telephone" type="xs:string" />
+    <xs:attribute blend:Format="주소" name="Address" type="xs:string" />
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,16 @@
+C:\seoyeon\WpfApp1\WpfControlLibrary3\bin\Debug\net9.0-windows\WpfControlLibrary3.deps.json
+C:\seoyeon\WpfApp1\WpfControlLibrary3\bin\Debug\net9.0-windows\WpfControlLibrary3.dll
+C:\seoyeon\WpfApp1\WpfControlLibrary3\bin\Debug\net9.0-windows\WpfControlLibrary3.pdb
+C:\seoyeon\WpfApp1\WpfControlLibrary3\obj\Debug\net9.0-windows\UserControl1.g.cs
+C:\seoyeon\WpfApp1\WpfControlLibrary3\obj\Debug\net9.0-windows\WpfControlLibrary3_MarkupCompile.cache
+C:\seoyeon\WpfApp1\WpfControlLibrary3\obj\Debug\net9.0-windows\WpfControlLibrary3_MarkupCompile.lref
+C:\seoyeon\WpfApp1\WpfControlLibrary3\obj\Debug\net9.0-windows\UserControl1.baml
+C:\seoyeon\WpfApp1\WpfControlLibrary3\obj\Debug\net9.0-windows\WpfControlLibrary3.g.resources
+C:\seoyeon\WpfApp1\WpfControlLibrary3\obj\Debug\net9.0-windows\WpfControlLibrary3.GeneratedMSBuildEditorConfig.editorconfig
+C:\seoyeon\WpfApp1\WpfControlLibrary3\obj\Debug\net9.0-windows\WpfControlLibrary3.AssemblyInfoInputs.cache
+C:\seoyeon\WpfApp1\WpfControlLibrary3\obj\Debug\net9.0-windows\WpfControlLibrary3.AssemblyInfo.cs
+C:\seoyeon\WpfApp1\WpfControlLibrary3\obj\Debug\net9.0-windows\WpfControlLibrary3.csproj.CoreCompileInputs.cache
+C:\seoyeon\WpfApp1\WpfControlLibrary3\obj\Debug\net9.0-windows\WpfControlLibrary3.dll
+C:\seoyeon\WpfApp1\WpfControlLibrary3\obj\Debug\net9.0-windows\refint\WpfControlLibrary3.dll
+C:\seoyeon\WpfApp1\WpfControlLibrary3\obj\Debug\net9.0-windows\WpfControlLibrary3.pdb
+C:\seoyeon\WpfApp1\WpfControlLibrary3\obj\Debug\net9.0-windows\ref\WpfControlLibrary3.dll

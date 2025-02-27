@@ -1,0 +1,19 @@
+﻿<!--
+      *********    이 파일을 수정하지 마십시오.     *********
+      이 파일은 디자인 도구에서 다시 생성했습니다. 이 파일을
+      변경하면 오류가 발생할 수 있습니다.
+-->
+<SampleDataSource:SampleDataSource xmlns:SampleDataSource="clr-namespace:Expression.Blend.SampleData.SampleDataSource">
+	<SampleDataSource:SampleDataSource.People>
+		<SampleDataSource:PeopleItem Id="99" Age="19" Irum="Aaberg, Jesper" Telephone="(111) 555-0100" Address="4567 Main St., Buffalo, NY 98052"/>
+		<SampleDataSource:PeopleItem Id="87" Age="21" Irum="Adams, Ellen" Telephone="(222) 555-0101" Address="1234 Main St., Buffalo, NY 98052"/>
+		<SampleDataSource:PeopleItem Id="76" Age="79" Irum="Adams, Terry" Telephone="(333) 555-0102" Address="2345 Main St., Buffalo, NY 98052"/>
+		<SampleDataSource:PeopleItem Id="65" Age="17" Irum="Adams, Terry" Telephone="(444) 555-0103" Address="789 Main St., Buffalo, NY 98052"/>
+		<SampleDataSource:PeopleItem Id="31" Age="25" Irum="Pfeiffer, Michael" Telephone="(222) 555-0105" Address="1234 Front St., Seattle, WA 12345"/>
+		<SampleDataSource:PeopleItem Id="41" Age="45" Irum="Philips, Carol" Telephone="(333) 555-0106" Address="2345 Front St., Seattle, WA 12345"/>
+		<SampleDataSource:PeopleItem Id="22" Age="29" Irum="Poe, Toni" Telephone="(444) 555-0107" Address="789 Front St., Seattle, WA 12345"/>
+		<SampleDataSource:PeopleItem Id="84" Age="78" Irum="Hicks, Cassie" Telephone="(555) 555-0108" Address="4567 Main St., Seattle, WA 12345"/>
+		<SampleDataSource:PeopleItem Id="93" Age="98" Irum="Argentiero, Luca" Telephone="(111) 555-0109" Address="1234 1st Ave, San Francisco, CA 99999"/>
+		<SampleDataSource:PeopleItem Id="88" Age="20" Irum="Perry, Brian" Telephone="(222) 555-0110" Address="2345 1st Ave, San Francisco, CA 99999"/>
+	</SampleDataSource:SampleDataSource.People>
+</SampleDataSource:SampleDataSource>

@@ -1,0 +1,167 @@
+﻿<Window x:Class="WpfApp1.Views.Window3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.Views"
+        mc:Ignorable="d"
+        Title="Window3" 
+		
+		xmlns:VM="clr-namespace:WpfApp1.ViewModels"
+		xmlns:Ctrl="clr-namespace:WpfApp1.Controls"
+		xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
+		
+		Height="850" Width="1000" 
+        Background="#FFD8CDBA" 
+        Foreground="#FF091788"
+        FontSize="24" 
+        FontFamily="Comic Sans MS">
+
+	<Window.Resources>
+		<DataTemplate x:Key="TemplateA" DataType="{x:Type VM:ViewAViewModel}">
+			<Ctrl:ViewA/>
+
+		</DataTemplate>
+		<DataTemplate x:Key="TemplateB" DataType="{x:Type VM:ViewBViewModel}">
+			<Ctrl:ViewB/>
+		</DataTemplate>
+
+		<DataTemplate x:Key="TemplatePeople" DataType="{x:Type VM:Window3ViewModel}">
+			<Ctrl:DataGridCtrl/>
+
+		</DataTemplate>
+	</Window.Resources>
+	<Window.DataContext>
+		<VM:Window3ViewModel/>
+	</Window.DataContext>
+	<ScrollViewer 
+        HorizontalScrollBarVisibility="Auto"
+        VerticalScrollBarVisibility="Auto">
+		<Grid ShowGridLines="True">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+
+			<StackPanel
+                Grid.Row="0"
+                Grid.Column="2"
+                >
+				<DataGrid RowDetailsVisibilityMode="VisibleWhenSelected" DataContext="{Binding}" ItemsSource="{Binding PeopleView}" Margin="10" EnableRowVirtualization="True" AutoGenerateColumns="False" HorizontalAlignment="Left" VerticalAlignment="Top" CanUserAddRows="False">
+					<DataGrid.Columns>
+						<DataGridTextColumn Width="SizeToHeader" Header="Address" Binding="{Binding Address}"/>
+						<DataGridTextColumn Width="SizeToHeader" Header="Age" Binding="{Binding Age}"/>
+						<DataGridCheckBoxColumn Width="SizeToHeader" Header="Gender" Binding="{Binding Gender}"/>
+						<DataGridTextColumn Width="SizeToHeader" Header="Id" Binding="{Binding Id}"/>
+						<DataGridTextColumn Width="SizeToHeader" Header="Irum" Binding="{Binding Irum}"/>
+						<DataGridTextColumn Width="SizeToHeader" Header="Telephone" Binding="{Binding Telephone}"/>
+					</DataGrid.Columns>
+					<behaviors:Interaction.Triggers>
+						<behaviors:EventTrigger EventName="SelectionChanged">
+							<behaviors:InvokeCommandAction  Command="{Binding SelectionChangedCommand}"
+															CommandParameter="{Binding SelectedItem, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
+						</behaviors:EventTrigger>
+					</behaviors:Interaction.Triggers>
+				</DataGrid>
+				<Border Margin="10" 
+                        CornerRadius="15"
+                        BorderThickness="2" 
+                        Background="#FF5EF529"
+						DataContext="{Binding PeopleView}">
+					<StackPanel Margin="10">
+						<Ctrl:DataGridCtrl />
+						<Ctrl:ListViewCtrl />
+					</StackPanel>
+				</Border>
+				<StackPanel Orientation="Vertical">
+					<ContentControl Content="{Binding DataGridCtrlView}" />
+					<ContentControl Content="{Binding ListCtrlView}"/>
+				</StackPanel>
+			</StackPanel>
+
+			<StackPanel
+                Grid.Row="0"
+                Grid.Column="1"
+                >
+				<Border Margin="10" 
+                        CornerRadius="15"
+                        BorderThickness="2" 
+                        Background="#FF5EF529"
+						>
+					<StackPanel Orientation="Vertical" Margin="10">
+						<Ctrl:DetailCtrl DataContext="{Binding SelectedPerson}"/>
+					</StackPanel>
+
+				</Border>
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+					<StackPanel Margin="10" Orientation="Vertical">
+						<Button Content="Select Person" Width="240" Margin="5">
+							<behaviors:Interaction.Triggers>
+								<behaviors:EventTrigger EventName="Click">
+									<behaviors:InvokeCommandAction  Command="{Binding SeleCurrentChangedCommand}"
+															CommandParameter="{Binding SelectedItem}"/>
+								</behaviors:EventTrigger>
+							</behaviors:Interaction.Triggers>
+						</Button>
+						<Button Content="Move Prev" Width="240" Margin="5">
+							<behaviors:Interaction.Triggers>
+								<behaviors:EventTrigger EventName="Click">
+									<behaviors:InvokeCommandAction Command="{Binding SeleMovePrevChangedCommand}" CommandParameter="{Binding SelectedItem}"
+															/>
+								</behaviors:EventTrigger>
+							</behaviors:Interaction.Triggers>
+						</Button>
+						<Button Content="Move Next" Width="240" Margin="5">
+							<behaviors:Interaction.Triggers>
+								<behaviors:EventTrigger EventName="Click">
+									<behaviors:InvokeCommandAction  Command="{Binding SeleMoveNextChangedCommand}"
+															CommandParameter="{Binding SelectedItem}"/>
+								</behaviors:EventTrigger>
+							</behaviors:Interaction.Triggers>
+						</Button>
+					</StackPanel>
+					<StackPanel Margin="10" Orientation="Vertical">
+						<!--<Button Content="Select Person" Command="{Binding AddPersonCommand}" Width="90" Margin="5"/>-->
+						<Button Content="Add" Command="{Binding AddPersonCommand}" Width="90" Margin="5"/>
+						<Button Content="Update" Command="{Binding UpdatePersonCommand}" Width="90" Margin="5"/>
+						<Button Content="Delete" Command="{Binding RemovePersonCommand}" Width="90" Margin="5"/>
+					</StackPanel>
+
+
+				</StackPanel>
+			</StackPanel>
+
+			<StackPanel
+                Grid.Row="0"
+                Grid.Column="0"
+                >
+				<Border Margin="10" 
+                        x:Name="heleleBorder1"
+                        CornerRadius="15"
+                        BorderThickness="2" 
+                        Background="#FF5EF529">
+					<!--<TextBlock 
+                    Text="Test Template"/>-->
+					<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+						<StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+							<Button Content="View A" Command="{Binding ShowViewACommand}" Width="100" Margin="5"/>
+							<Button Content="View B" Command="{Binding ShowViewBCommand}" Width="100" Margin="5"/>
+						</StackPanel>
+						<!-- ContentControl을 사용하여 동적으로 뷰 변경 -->
+						<ContentControl Margin="50" Content="{Binding CurrentView}"/>
+
+						<ContentControl Margin="50" ContentTemplate="{StaticResource TemplateA}"/>
+
+						<ContentControl Margin="50" ContentTemplate="{StaticResource TemplateB}"/>
+					</StackPanel>
+				</Border>
+			</StackPanel>
+		</Grid>
+	</ScrollViewer>
+</Window>
