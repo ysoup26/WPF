@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="WpfApp1.Controls.DataGridCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+	<DataGrid RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" HorizontalAlignment="Left" VerticalAlignment="Top" CanUserAddRows="False">
+		<DataGrid.Columns>
+			<DataGridTextColumn Width="SizeToHeader" Header="Address" Binding="{Binding Address}"/>
+			<DataGridTextColumn Width="SizeToHeader" Header="Age" Binding="{Binding Age}"/>
+			<DataGridCheckBoxColumn Width="SizeToHeader" Header="Gender" Binding="{Binding Gender}"/>
+			<DataGridTextColumn Width="SizeToHeader" Header="Id" Binding="{Binding Id}"/>
+			<DataGridTextColumn Width="SizeToHeader" Header="Irum" Binding="{Binding Irum}"/>
+			<DataGridTextColumn Width="SizeToHeader" Header="Telephone" Binding="{Binding Telephone}"/>
+		</DataGrid.Columns>
+	</DataGrid>
+
+</UserControl>
