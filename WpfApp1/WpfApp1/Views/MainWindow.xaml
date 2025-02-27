@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.Views"
 		xmlns:VM="clr-namespace:WpfApp1.ViewModels"
+		xmlns:Ctrl="clr-namespace:WpfApp1.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="650" Width="800">
 	<Grid>
 		<ContentControl Content="{Binding CurrentViewModel}">
 			<ContentControl.Resources>
@@ -15,6 +16,18 @@
 				</DataTemplate>
 				<DataTemplate DataType="{x:Type VM:AddActivityViewModel}">
 					<local:AddActivityView />
+				</DataTemplate>
+				<DataTemplate DataType="{x:Type VM:TestViewModel}">
+					<Ctrl:TestView/>
+				</DataTemplate>
+				<DataTemplate DataType="{x:Type VM:SelectActivityViewModel}">
+					<local:SelectActivityView/>
+				</DataTemplate>
+				<DataTemplate DataType="{x:Type VM:DeleteActivityViewModel}">
+					<local:DeleteActivityView/>
+				</DataTemplate>
+				<DataTemplate DataType="{x:Type VM:UpdateActivityViewModel}">
+					<local:UpdateActivityView/>
 				</DataTemplate>
 			</ContentControl.Resources>
 		</ContentControl>

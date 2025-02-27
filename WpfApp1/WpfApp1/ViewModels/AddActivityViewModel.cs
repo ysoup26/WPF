@@ -12,7 +12,7 @@ namespace WpfApp1.ViewModels
     public partial class AddActivityViewModel(IServiceProvider serviceProvider) : ObservableObject
 	{
 		[ObservableProperty]
-		public partial string Title { get; set; } = "Add New Activity";
+		public partial string Title { get; set; } = "Add New Activity"; 
 
 		[RelayCommand]
 		private void GoToActivities()
@@ -20,5 +20,12 @@ namespace WpfApp1.ViewModels
 			var mainViewModel = serviceProvider.GetRequiredService<MainViewModel>(); 
 			mainViewModel.CurrentViewModel = serviceProvider.GetRequiredService<ActivitiesViewModel>();
 		}
-}
+
+		[RelayCommand]
+		private void GoToTestViewActivity()
+		{
+			var mainViewModel = serviceProvider.GetRequiredService<MainViewModel>();
+			mainViewModel.CurrentViewModel = serviceProvider.GetRequiredService<TestViewModel>();
+		}
+	}
 }

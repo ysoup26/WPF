@@ -13,13 +13,13 @@ namespace WpfApp1.ViewModels
     public partial class TestViewModel(IServiceProvider serviceProvider): ObservableObject
     {
 		[ObservableProperty]
-		public partial string Title { get; set; } = "Activites";
+		public partial string Title { get; set; } = "Tests";
 
 		[RelayCommand]
-		private void GoToTestActivity()
+		private void GoToActivities()
 		{
 			var mainViewModel = serviceProvider.GetRequiredService<MainViewModel>();
-			mainViewModel.CurrentViewModel = serviceProvider.GetRequiredService<TestViewModel>();
+			mainViewModel.CurrentViewModel = serviceProvider.GetRequiredService<ActivitiesViewModel>();
 		}
 	}
 }

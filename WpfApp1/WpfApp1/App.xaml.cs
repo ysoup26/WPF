@@ -29,10 +29,21 @@ namespace WpfApp1
                     //임시 사용
                     services.AddTransient<ActivitiesViewModel>(); 
                     services.AddTransient<ActivitiesView>(); 
+
                     services.AddTransient<AddActivityViewModel>(); 
                     services.AddTransient<AddActivityView>();
+
 					services.AddTransient<TestViewModel>();
 					services.AddTransient<TestView>();
+
+					services.AddTransient<DeleteActivityViewModel>();
+					services.AddTransient<DeleteActivityView>();
+
+					services.AddTransient<SelectActivityViewModel>();
+					services.AddTransient<SelectActivityView>();
+
+					services.AddTransient<UpdateActivityViewModel>();
+					services.AddTransient<UpdateActivityView>();
 				})
                 .Build();
 		}

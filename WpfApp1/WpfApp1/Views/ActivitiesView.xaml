@@ -5,13 +5,43 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp1.Views"
              xmlns:VM="clr-namespace:WpfApp1.ViewModels"
+			 xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
+			 d:DataContext="{d:DesignInstance Type=VM:ActivitiesViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-			 d:DataContext="{d:DesignInstance Type=VM:ActivitiesViewModel}">
+             d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
 		<StackPanel>
-			<TextBlock Text="{Binding Title}"/>
-			<Button Content="Add New Activity" Command="{Binding GoToAddActivityCommand}"/>
+			
+			<StackPanel Margin="10">
+				<DataGrid RowDetailsVisibilityMode="VisibleWhenSelected" DataContext="{Binding}" ItemsSource="{Binding PeopleView}" Margin="10" EnableRowVirtualization="True" AutoGenerateColumns="False" HorizontalAlignment="Left" VerticalAlignment="Top" CanUserAddRows="False">
+					<DataGrid.Columns>
+						<DataGridTextColumn Width="SizeToHeader" Header="Address" Binding="{Binding Address}"/>
+						<DataGridTextColumn Width="SizeToHeader" Header="Age" Binding="{Binding Age}"/>
+						<DataGridCheckBoxColumn Width="SizeToHeader" Header="Gender" Binding="{Binding Gender}"/>
+						<DataGridTextColumn Width="SizeToHeader" Header="Id" Binding="{Binding Id}"/>
+						<DataGridTextColumn Width="SizeToHeader" Header="Irum" Binding="{Binding Irum}"/>
+						<DataGridTextColumn Width="SizeToHeader" Header="Telephone" Binding="{Binding Telephone}"/>
+					</DataGrid.Columns>
+					<behaviors:Interaction.Triggers>
+						<behaviors:EventTrigger EventName="SelectedCellsChanged">
+							<behaviors:InvokeCommandAction Command="{Binding SelectionChangedCommand}"
+														CommandParameter="{Binding SelectedItem, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
+						</behaviors:EventTrigger>
+					</behaviors:Interaction.Triggers>
+				</DataGrid>
+				<TextBlock Text="{Binding Title}" FontFamily="Comic Sans MS" FontSize="35" Foreground="Red" />
+				<Button Content="Select Person Activity" FontFamily="Comic Sans MS" FontSize="38" Foreground="Magenta" 
+						Margin="10" Command="{Binding GoToSelectPersonActivityCommand}"/>
+				<Button Content="Insert Person Activity" FontFamily="Comic Sans MS" FontSize="38" Foreground="Magenta" 
+						Margin="10" Command="{Binding GoToInsertPersonActivityCommand}"/>
+				<Button Content="Delete Person Activity" FontFamily="Comic Sans MS" FontSize="38" Foreground="Magenta" 
+						Margin="10" Command="{Binding GoToDeletePersonActivityCommand}"/>
+				<Button Content="Update Person Activity" FontFamily="Comic Sans MS" FontSize="38" Foreground="Magenta" 
+						Margin="10" Command="{Binding GoToUpdatePersonActivityCommand}"/>
+				<Button Content="Add New Activity" Command="{Binding GoToAddActivityCommand}" Visibility="Collapsed"/>
+				<Button Content="Add Test Activity" Command="{Binding GoToTestActivityCommand}" Visibility="Collapsed"/>
+			</StackPanel>
+
 		</StackPanel>
 		
 	</Grid>

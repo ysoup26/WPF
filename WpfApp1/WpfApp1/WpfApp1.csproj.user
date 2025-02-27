@@ -35,7 +35,16 @@
     <Compile Update="Views\AddActivityView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\DeleteActivityView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\MainWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SelectActivityView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpdateActivityView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Window1.xaml.cs">
