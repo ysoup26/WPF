@@ -1,7 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Windows;
 using WpfApp1.Controls;
+using WpfApp1.Data;
 using WpfApp1.Services;
 using WpfApp1.ViewModels;
 using WpfApp1.Views;
@@ -23,7 +25,12 @@ namespace WpfApp1
                 {
                     //service registration...resolve GetRequireService()
 
+                    //상단에 두어야함
+                    services.AddDbContext<UserDbContext>(options =>
+                    options.UseSqlite("Data Source = users.db"));
+
                     //global
+                    services.AddSingleton<IDbUserService,DbUserService>(); 
                     services.AddSingleton<IUserService,UserService>(); 
                     services.AddSingleton<ITestService,UsersService>(); 
 
