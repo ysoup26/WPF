@@ -23,10 +23,10 @@ namespace WpfApp1
 			_host = Host.CreateDefaultBuilder()
                 .ConfigureServices(services =>
                 {
-                    //service registration...resolve GetRequireService()
+					//service registration...resolve GetRequireService()
 
-                    //상단에 두어야함
-                    services.AddDbContext<UserDbContext>(options =>
+					//상단에 두어야함 = store+storage service  ==> db service
+					services.AddDbContext<UserDbContext>(options =>
                     options.UseSqlite("Data Source = users.db"));
 
                     //global

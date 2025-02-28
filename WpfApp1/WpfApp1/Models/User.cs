@@ -9,6 +9,7 @@ namespace WpfApp1.Models
 {
 	public partial class User: ObservableObject
 	{
+		//private int id;
 		//[ObservableProperty]
 		public int Id { get; set; }
 

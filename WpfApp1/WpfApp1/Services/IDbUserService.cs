@@ -14,6 +14,7 @@ namespace WpfApp1.Services
 	{
 		Task<List<User>>GetUsersAsync();
 		Task AddUserAsync();
+		Task<User> AddUserReturnAsync(User user);
 		Task UpdateUserAsync(User user);
 		Task DeleteUserAsync(User user);
 	}
@@ -41,6 +42,21 @@ namespace WpfApp1.Services
 			dbContext.Users.Add(newUser);
 
 			await dbContext.SaveChangesAsync();
+		}
+
+		public async Task<User> AddUserReturnAsync(User imsi)
+		{
+			//var newUser = new User
+			//{
+			//	Irum = "John",
+			//	Age = 20
+			//};
+			imsi.Age += 100;
+
+			dbContext.Users.Add(imsi);
+
+			await dbContext.SaveChangesAsync();
+			return imsi;
 		}
 
 		public async Task DeleteUserAsync(User user)

@@ -12,14 +12,17 @@ using WpfApp1.Services;
 
 namespace WpfApp1.ViewModels
 {
-    //primary constructor
-    public partial class TestViewModel(IServiceProvider serviceProvider,IUserService userService,ITestService usersService): ObservableObject
-    {
+	//primary constructor
+	public partial class TestViewModel(IServiceProvider serviceProvider, IUserService userService, ITestService usersService, IDbUserService dbUserService) : ObservableObject
+	{
 		[ObservableProperty]
 		public partial string Title { get; set; } = "Tests";
 
 		[ObservableProperty]
 		public partial Person SelectPerson { get; set; } = new();
+
+		[ObservableProperty]
+		public partial User SelectUser { get; set; } = new();
 
 		[ObservableProperty]
 		public partial ObservableCollection<Person> People { get; set; }
@@ -32,6 +35,33 @@ namespace WpfApp1.ViewModels
 
 			var mainViewModel = serviceProvider.GetRequiredService<MainViewModel>();
 			mainViewModel.CurrentViewModel = serviceProvider.GetRequiredService<ActivitiesViewModel>();
+
+			dbUserService.AddUserAsync();
+
+		}
+
+		[RelayCommand]
+		private async void GoToDbTestActivity()
+		{
+			//var users = await dbUserService.GetUsersAsync
+			//SelectUser = users.FirstOrDefault();
+
+			await dbUserService.AddUserAsync();
+
+			User user = new User
+			{
+				Irum = "John",
+				Age = 20
+			};
+			//SelectUser = await dbUserService.AddUserReturnAsync(user).Result; //c# 7.0 value task vs c# 4.0
+
+			//c# 5.0 async /await
+			SelectUser = await dbUserService.AddUserReturnAsync(user);
+			//People = usersService.Ad;
+
+			var mainViewModel = serviceProvider.GetRequiredService<MainViewModel>();
+			mainViewModel.CurrentViewModel = serviceProvider.GetRequiredService<ActivitiesViewModel>();
+
 		}
 	}
 }
