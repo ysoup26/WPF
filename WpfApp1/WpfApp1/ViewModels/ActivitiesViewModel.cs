@@ -30,7 +30,7 @@ namespace WpfApp1.ViewModels   //c# 12.0...primary-constructors...(injector+inje
 		private readonly IUserService _userService;
 
 		// injection service 
-		public ActivitiesViewModel(IServiceProvider serviceProvider,IUserService userService, ITestService testService)
+		public ActivitiesViewModel(IServiceProvider serviceProvider,IUserService userService, ITestService testService,IDbUserService dbUserService)
 		{
 			_serviceProvider = serviceProvider;
 			_userService = userService;

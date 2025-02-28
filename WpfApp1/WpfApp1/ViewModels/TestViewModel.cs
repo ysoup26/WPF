@@ -26,19 +26,23 @@ namespace WpfApp1.ViewModels
 		public partial User SelectedUser { get; set; }// = new();
 
 		[ObservableProperty]
+		public partial Saram SelectedSaram { get; set; }// = new();
+
+
+		[ObservableProperty]
 		public partial ObservableCollection<Person> People { get; set; }
 
 		[RelayCommand]
 		private void GoToActivities()
 		{
-			Debug.WriteLine(SelectedPerson.Irum,SelectedPerson.Age);
+			//Debug.WriteLine(SelectedPerson.Irum,SelectedPerson.Age);
 			//SelectPerson = userService.GetPerson();
 			//People = usersService.GetPeople();
 
 			var mainViewModel = serviceProvider.GetRequiredService<MainViewModel>();
 			mainViewModel.CurrentViewModel = serviceProvider.GetRequiredService<ActivitiesViewModel>();
 
-			//dbUserService.AddUserAsync();
+			//saramDbUserService.AddUserAsync();
 
 		}
 
@@ -48,17 +52,18 @@ namespace WpfApp1.ViewModels
 			//var users = await dbUserService.GetUsersAsync
 			//SelectUser = users.FirstOrDefault();
 
-			await dbUserService.AddUserAsync();
+			//await saramDbUserService.AddUserAsync();
 
-			User user = new User
-			{
-				Irum = "John",
-				Age = 20
-			};
+			//Saram user = new Saram
+			//{
+			//	Name = "John",
+			//	Age = 20
+			//};
+
 			//SelectUser = await dbUserService.AddUserReturnAsync(user).Result; //c# 7.0 value task vs c# 4.0
 
 			//c# 5.0 async /await
-			SelectedUser = await dbUserService.AddUserReturnAsync(user);
+			//SelectedSaram = await saramDbUserService.AddUserReturnAsync(user);
 			//People = usersService.Ad;
 
 			//var mainViewModel = serviceProvider.GetRequiredService<MainViewModel>();

@@ -7,7 +7,7 @@
 		xmlns:VM="clr-namespace:WpfApp1.ViewModels"
 		xmlns:Ctrl="clr-namespace:WpfApp1.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="800">
+        Title="MainWindow" Width="800">
 	<Grid>
 		<ContentControl Content="{Binding CurrentViewModel}">
 			<ContentControl.Resources>

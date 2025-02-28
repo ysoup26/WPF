@@ -1,0 +1,58 @@
+c# 2.0 
+partial class service -> class level service
+c# 3.0 
+partial method -> declare service
+c# 9.0 
+partial method -> implement service = source-generation
+Nullable, if null 지원
+c# 13.0
+partial property -> property 수준으로 올라옴. 하지만 utillity를 사용할 땐 충돌할 수 있음(버전 업데이트가 안되있어서)
+
+[3E]
+IEnumerable, IQueryable, IObservable
+
+[5S]
+State -> Store(cache) --Stream(DataTransportObject객체)-->Stove(EntityFramework-백엔드Store)
+
+[state]
+Evulation  vs Excution
+dynamic      static
+Task           CPU = Thread-level
+
+Observable  vs  List객체
+ICollection        serialization
+dictionary
+Json packet
+
+사용자 정의 컨트롤: 옛 방식, xaml을 포함함(무거움). 사용자 지정 컨트롤: 발전된 방향, 마크업과 비슷한 개념
+
+항상 동적인(Real-Time) 코드를 고려하며 작업해야한다.
+store을 많이 쓸 수록 무거워짐
+
+[Tool]
+Nuget Package
+-CommunityToolkit.Mvvm
+-Microsoft.EntityFrameworkCore
+-Microsoft.EntityFrameworkCore.Design
+-Microsoft.EntityFrameworkCore.InMemory
+-Microsoft.EntityFrameworkCore.Sqlite
+-Microsoft.EntityFrameworkCore.SqlServer
+-Microsoft.EntityFrameworkCore.Tools
+-Microsoft.Extensions.DependencyInjection
+-Microsoft.Extensions.Hosting
+-Microsoft.Xaml.Behaviors.Wpf
+
+확장->확장관리
+-EF Core Power Tools
+-SQL Compact Toolbox
+
+mutable vs immutable
+store        no store, dynamic
+
+[db]
+툴
+보기->SQL Server 개체 탐색기->작성후 update및 데이터 추가
+code first = 스캐폴딩
+도구->Nuget->패키지관리자콘솔(PM)
+Add-Migration InitialCreate1 -context "Context이름"
+Migrations 폴더와 파일이 생김

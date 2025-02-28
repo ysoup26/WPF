@@ -1,9 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 using System.Windows;
+using System.Windows.Media;
 using WpfApp1.Controls;
 using WpfApp1.Data;
+using WpfApp1.Models;
 using WpfApp1.Services;
 using WpfApp1.ViewModels;
 using WpfApp1.Views;
@@ -29,7 +32,12 @@ namespace WpfApp1
 					services.AddDbContext<UserDbContext>(options =>
                     options.UseSqlite("Data Source = users.db"));
 
-                    //global
+					//EF Core: SQL provider등록
+					services.AddDbContext<SaramDB2Context>(options =>
+							options.UseSqlite("Data Source = (localdb)\\MSSQLLocalDB;Initial Catalog=Saram2DB;Integrated Security=True"));
+
+					//global
+					services.AddSingleton<ISaramDbUserService,SaramDbUserService>(); 
                     services.AddSingleton<IDbUserService,DbUserService>(); 
                     services.AddSingleton<IUserService,UserService>(); 
                     services.AddSingleton<ITestService,UsersService>(); 
