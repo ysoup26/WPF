@@ -38,6 +38,8 @@
 						Margin="10" Command="{Binding GoToDeletePersonActivityCommand}"/>
 				<Button Content="Update Person Activity" FontFamily="Comic Sans MS" FontSize="38" Foreground="Magenta" 
 						Margin="10" Command="{Binding GoToUpdatePersonActivityCommand}"/>
+				<Button Content="Db Test View Activity" FontFamily="Comic Sans MS" FontSize="38" Foreground="Magenta" 
+						Margin="10" Command="{Binding GoToDbTestActivityCommand}"/>
 				<Button Content="Add New Activity" Command="{Binding GoToAddActivityCommand}" Visibility="Collapsed"/>
 				<Button Content="Add Test Activity" Command="{Binding GoToTestActivityCommand}" Visibility="Collapsed"/>
 			</StackPanel>

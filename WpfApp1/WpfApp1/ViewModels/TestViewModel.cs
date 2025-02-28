@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,10 +20,10 @@ namespace WpfApp1.ViewModels
 		public partial string Title { get; set; } = "Tests";
 
 		[ObservableProperty]
-		public partial Person SelectPerson { get; set; } = new();
+		public partial Person SelectedPerson { get; set; }// = new();
 
 		[ObservableProperty]
-		public partial User SelectUser { get; set; } = new();
+		public partial User SelectedUser { get; set; }// = new();
 
 		[ObservableProperty]
 		public partial ObservableCollection<Person> People { get; set; }
@@ -30,13 +31,14 @@ namespace WpfApp1.ViewModels
 		[RelayCommand]
 		private void GoToActivities()
 		{
-			SelectPerson = userService.GetPerson();
-			People = usersService.GetPeople();
+			Debug.WriteLine(SelectedPerson.Irum,SelectedPerson.Age);
+			//SelectPerson = userService.GetPerson();
+			//People = usersService.GetPeople();
 
 			var mainViewModel = serviceProvider.GetRequiredService<MainViewModel>();
 			mainViewModel.CurrentViewModel = serviceProvider.GetRequiredService<ActivitiesViewModel>();
 
-			dbUserService.AddUserAsync();
+			//dbUserService.AddUserAsync();
 
 		}
 
@@ -56,11 +58,11 @@ namespace WpfApp1.ViewModels
 			//SelectUser = await dbUserService.AddUserReturnAsync(user).Result; //c# 7.0 value task vs c# 4.0
 
 			//c# 5.0 async /await
-			SelectUser = await dbUserService.AddUserReturnAsync(user);
+			SelectedUser = await dbUserService.AddUserReturnAsync(user);
 			//People = usersService.Ad;
 
-			var mainViewModel = serviceProvider.GetRequiredService<MainViewModel>();
-			mainViewModel.CurrentViewModel = serviceProvider.GetRequiredService<ActivitiesViewModel>();
+			//var mainViewModel = serviceProvider.GetRequiredService<MainViewModel>();
+			//mainViewModel.CurrentViewModel = serviceProvider.GetRequiredService<ActivitiesViewModel>();
 
 		}
 	}

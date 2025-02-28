@@ -125,6 +125,34 @@ namespace WpfApp1.ViewModels   //c# 12.0...primary-constructors...(injector+inje
 			mainViewModel.CurrentViewModel = updatePersonViewModel;
 		}
 
+		[RelayCommand]
+		private void GoToDbTestActivity()
+		{
+			var dbTestViewModel = _serviceProvider.GetRequiredService<TestViewModel>();
+
+			User user = new User
+			{
+				Irum = "John",
+				Age = 20
+			};
+
+			Person person = new Person
+			{
+				Id = 1,
+				Age = 11,
+				Address = "seoul",
+				Gender = true,
+				Irum = "leebok1",
+				Telephone = "1234-5678"
+			};
+
+			dbTestViewModel.SelectedUser = user;
+			dbTestViewModel.SelectedPerson = person;
+
+			var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
+			mainViewModel.CurrentViewModel = dbTestViewModel;
+		}
+
 		[RelayCommand] 
 		private void SelectionChanged(Person selectedItem)
 		{
