@@ -56,3 +56,5 @@ code first = 스캐폴딩
 도구->Nuget->패키지관리자콘솔(PM)
 Add-Migration InitialCreate1 -context "Context이름"
 Migrations 폴더와 파일이 생김
+
+[참고]

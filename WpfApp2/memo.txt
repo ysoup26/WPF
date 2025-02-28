@@ -1,0 +1,22 @@
+IRecipient->messenger역할
+
+record
+
+immutable service = dynamic time = global
+const = compile time
+binding property는 static이 아님
+
+
+최신버전 사용 <LangVersion>preview</LangVersion> 
+get => field를 사용할 수 있음
+
+WeakReferenceMessenger vs *StrongReferenceMessenger
+garbege 방식  -- regi방식(그때그때 삭제함) 수신자에 대한 강한 참조를 유지함. 제때 삭제해야
+cli가 함             개발자가함
+메모리 누수 관리의 주체가 다름
+
+IDisposable: Strong을 사용할때의 오래된 방식
+
+<TextBlock Text="{Binding Source={x:Static VM:SlaveViewModel.Instance}, Path=ReceivedData}" Width="200" Height="25" />
+다른 viewmodel의 인스턴스를 가져올 수 있음
+

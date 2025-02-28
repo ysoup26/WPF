@@ -1,0 +1,63 @@
+[1일차]
+Facebook 그룹: https://www.facebook.com/groups/frontiner
+Github: Dotnet/Comet https://github.com/dotnet/Comet?tab=readme-ov-file
+Window Presentation 개념: https://learn.microsoft.com/ko-kr/dotnet/desktop/wpf/overview/?view=netdesktop-9.0
+WPF MVVM Pattern: https://www.csharp.com/UploadFile/ptmujeeb/wpf-mvvm-pattern-a-simple-tutorial-for-absolute-beginners/
+
+과정: 배경 설명 -> 교육 자료 공유 -> vs 설치 -> blend 실습(스토리보드, 데이터, 템플릿) -> 2019 & 2022 
+
+memo: 생성자에서 Command등을 선언하는 것은 올바르지 않음(Injector을 괜찮음)
+-----------------------------------------------------------------------------------
+[2일차]
+Bootstrap Docs: https://getbootstrap.com/docs/5.3/getting-started/introduction/
+Dot Net Tricks https://www.abhisheksur.com/2010/08/woring-with-icollectionviewsource-in.html?fbclid=IwY2xjawIqR3ZleHRuA2FlbQIxMAABHQkAP0suS8bxlJKh4sNWUcA-VI45ev-hk4LRlrLdVJWecdomBCqee_SO5Q_aem_uG2t66YC8n8oyGI726ITkw
+과정: Mvvm 유튜브 영상 리뷰 -> 툴킷 실습(CommunityToolkit.Mvvm) -> 라이브러리 프로젝트 실습(UserControl을 프로젝트로:UI와 ViewModel을 분리함)
+->데이터 템플릿, 사용자 정의/지정컨트롤 -> vs2019로 실습 CollectionViewSource(DB 작업)
+
+[Memo]
+Binding: View<->ViewModel => ICommand, IValueConverter
+Notification ViewModel<->Model => INotifyPropertyChanged, ObservableCollection(바인딩소스)
+C#의 3E IEnumerable, IQueryable, IObservable
+Pull(interactive)과 Push(Reactive)
+variables(store, 수직), observation(레코드,튜플,No-SQL), values(필드)  <-->리스트는 자동으로 바인딩이 안됨
+Interface(관계포인터) delegate(함수포인터)
+ObservableCollection->collection service, ObservableObject->reactive service
+partial을 사용한 Observable은 대문자여야함
+사용자 정의 컨트롤: 옛 방식, xaml을 포함함(무거움). 사용자 지정 컨트롤: 발전된 방향, 마크업과 비슷한 개념
+
+2019버전(c# 8.0이전)은 Nullable과 if null 체크를 지원안함
+DataTemplate->viewmodel을 가지고 view를 만듬(연결함)
+CollectionViewSource == 포인터 작업
+
+**CollectionViewSource은 window까지만 동작함. 사용자 지정 등을 사용했으면 메신저등을 사용해야함 
+[Memo]
+1)사용자 지정 컨트롤을 Window에서 사용하는 법
+<Window.Resources>
+	<DataTemplate x:Key="TemplateA" DataType="{x:Type VM:ViewAViewModel}">
+		<Ctrl:ViewA/>
+	</DataTemplate>
+</Window.Resources>
+//사용
+<ContentControl Margin="50" ContentTemplate="{StaticResource TemplateB}"/>
+2)propfull : get set이 한번에 만들어짐
+3)
+public ICollectionView PeopleView { get; }
+PeopleView = CollectionViewSource.GetDefaultView(People); //포인터 작업
+PeopleView.SortDescriptions.Add(new SortDescription(nameof(Person.Id), ListSortDirection.Descending));
+[조언]
+항상 동적인(Real-Time) 코드를 고려하며 작업해야한다.
+store을 많이 쓸 수록 무거워짐
+-----------------------------------------------------------------------------------
+3일차
+
+(1936) Navigering i WPF med MVVM och CommunityToolkit.Mvvm (Grafisk applikationsutveckling) - YouTube
+[https://www.youtube.com/watch?v=tGJTs9vapRA](https://www.youtube.com/watch?v=tGJTs9vapRA)
+(2142) Hantera listor och events i WPF [CommunityToolkit.Mvvm] (Grafisk applikationsutveckling) - YouTube
+[https://www.youtube.com/watch?v=-oO2z8NkTac...](https://www.youtube.com/watch?v=-oO2z8NkTac...)
+
+CollectionViewSource 응용,Injection, app.xaml개조
+
+4일차
+5일차
+Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SaramDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False
+
